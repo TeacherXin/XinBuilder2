@@ -1,0 +1,19 @@
+.designTop{
+  position: absolute;
+  height: 10%;
+  color: rgb(211, 202, 202);
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 0 2px 2px rgb(209, 203, 203);
+  background-color: #ffffff;
+}
+
+.designTop .title {
+  color:rgb(192, 190, 230);
+  position: relative;
+  left: 100px;
+  font-size: 28px;
+  top: 15px;
+  font-style: italic;
+  font-weight: bold;
+}
