@@ -2,16 +2,19 @@ import './index.css'
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import * as components from './component'
+import { componentIconMap, componentTextMap } from './staticUtil/iconList';
 
 export default function LeftCom() {
 
 
   const renderComponent = () => {
-    return <div>
+    return <div className="componetGroup">
       {
         Object.keys(components).map(name => {
-          return <div draggable key={name} className='componentItem'>
-            <div style={{display: 'inline-block'}}><span>{name}</span></div>
+          const Icon = componentIconMap[name]
+          const text = componentTextMap[name]
+          return <div key={name} className='componentItem'>
+            <div draggable style={{display: 'inline-block'}}><Icon style={{marginRight:'10px'}} /><span>{text}</span></div>
           </div>
         })
       }
@@ -26,7 +29,7 @@ export default function LeftCom() {
     },
     {
       key: 'data',
-      label: <div style={{fontSize:'18px',width:'100px',textAlign:'center'}}>组件</div>,
+      label: <div style={{fontSize:'18px',width:'100px',textAlign:'center'}}>数据</div>,
       children: 'Content of Tab Pane 2',
     }
   ];
