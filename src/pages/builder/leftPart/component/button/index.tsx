@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function Button() {
+export default function Button(props: any) {
+  const {style} = props
   return (
-    <div>Button</div>
+    <div style={style}>Button</div>
   )
 }

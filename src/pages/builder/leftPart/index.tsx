@@ -6,7 +6,6 @@ import { componentIconMap, componentTextMap } from './staticUtil/iconList';
 
 export default function LeftCom() {
 
-
   const renderComponent = () => {
     return <div className="componetGroup">
       {
@@ -14,11 +13,17 @@ export default function LeftCom() {
           const Icon = componentIconMap[name]
           const text = componentTextMap[name]
           return <div key={name} className='componentItem'>
-            <div draggable style={{display: 'inline-block'}}><Icon style={{marginRight:'10px'}} /><span>{text}</span></div>
+            <div onDragStart={onDragStart(name)} draggable style={{display: 'inline-block'}}><Icon style={{marginRight:'10px'}} /><span>{text}</span></div>
           </div>
         })
       }
     </div>
+  }
+
+  const onDragStart = (name: string) => {
+    return () => {
+      window.nowCom = name
+    }
   }
 
   const items: TabsProps['items'] = [
