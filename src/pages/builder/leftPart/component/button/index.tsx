@@ -1,10 +1,10 @@
 import { Button as AntButton } from 'antd'
 
 export default function Button(props: any) {
-  const {style} = props
+  const {caption} = props
   return (
-    <div style={style}>
-      <AntButton>按钮</AntButton>
+    <div>
+      <AntButton>{caption || '按钮'}</AntButton>
     </div>
   )
 }

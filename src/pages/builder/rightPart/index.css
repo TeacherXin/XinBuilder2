@@ -1,0 +1,15 @@
+.rightCom {
+  width: 20%;
+  position: absolute;
+  right: 0;
+  top: 10%;
+  background-color: white;
+  height: 90%;
+}
+
+.attributeItem{
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}

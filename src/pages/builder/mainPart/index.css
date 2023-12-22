@@ -2,3 +2,7 @@
   width: 100%;
   height: 100vh;
 }
+
+.selectCom{
+  border: 0.5px solid #1677ff;
+}

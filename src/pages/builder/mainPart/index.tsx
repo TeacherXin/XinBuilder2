@@ -4,6 +4,8 @@ import * as components from '../leftPart/component'
 
 interface ComJson {
   comType: string,
+  comId: string,
+  caption?:string,
   style?: any
 }
 
@@ -18,6 +20,7 @@ export default function MainCom() {
 
   const [comList, setComList] = useState<ComJson []>([])
   const [dragCom, setDragCom] = useState<ComJson | null>(null)
+  const [selectId, setSelectId] = useState<string>('')
 
   const distance = useRef<Distance>({
     startLeft: void 0,
@@ -43,10 +46,13 @@ export default function MainCom() {
         top: distance.current.endTop + 'px',
         zIndex:100
       }
+      let comId = `comId_${Date.now()}`
       comList.push({
         comType: window.nowCom,
-        style
+        style,
+        comId
       })
+      setSelectId(comId)
     }
     setComList([...comList])
   }
@@ -68,14 +74,25 @@ export default function MainCom() {
     }
   }
 
+  const selectCom = (com: ComJson) => {
+    return () => {
+      setSelectId(com.comId);
+      window.renderCom = com;
+      window.comList = comList;
+      window.setComList = setComList
+    }
+  }
+
 
   return (
     <div onDrop={onDrop} onDragOver={onDragOver} onDragEnter={onDragEnter} className='mainCom'>
       {
         comList.map(com => {
           const Com = components[com.comType as keyof typeof components];
-          return <div draggable onDragStart={onDragStart(com)}>
-            <Com style={com.style} />
+          return <div key={com.comId} onClick={selectCom(com)} draggable onDragStart={onDragStart(com)}>
+            <div className={com.comId === selectId ? 'selectCom' : ''} style={com.style}>
+              <Com {...com}/>
+            </div>
           </div>
         })
       }
