@@ -1,7 +1,10 @@
-import React from 'react'
+import { Input as AntInput } from 'antd'
 
-export default function Input() {
+export default function Input(props: any) {
+  const {style} = props
   return (
-    <div>Input</div>
+    <div style={style}>
+      <AntInput />
+    </div>
   )
 }
