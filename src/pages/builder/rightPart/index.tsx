@@ -1,23 +1,40 @@
 import './index.css'
 import { Input, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
+import { attributeMap } from './staticUtils/attributeMap';
+import { useState } from 'react';
+import InputComponent from './staticComponet/InputComponent';
 
 export default function RightCom() {
 
+  const [update, setUpdate] = useState({})
+
   const getAttributePanel = () => {
+    const comType = window.renderCom?.comType;
+    const comAttributeList = attributeMap[comType] || []
     return <div>
-      <div className='attributeItem'>
-        <label>按钮文字：</label>
-        <div className='attributeItemValue'>
-          <Input onChange={changeComAttribute} />
+      {
+        comAttributeList.map((item,index) => {
+          return <div key={index} className='attributeItem'>
+          <label className='attributeLabel'>{item.label}</label>
+          <div className='attributeItemValue'>
+            <InputComponent {...item} onChange={changeComAttribute(item.value)}/>
+          </div>
         </div>
-      </div>
+        })
+      }
     </div>
   }
 
-  const changeComAttribute = (e:any) => {
-    window.renderCom.caption = e.target.value;
-    window.setComList([...window.comList])
+  const changeComAttribute = (value: string) => {
+    return (e: any) => {
+      let attribute = e;
+      if(typeof e === 'object') {
+        attribute = e.target.value;
+      }
+      window.renderCom[value] = attribute;
+      window.setComList([...window.comList])
+    }
   }
 
   const items: TabsProps['items'] = [
@@ -33,13 +50,13 @@ export default function RightCom() {
     }
   ];
 
-  const onChange = () => {
-    
+  const onChange = (value: string) => {
+    setUpdate({a: 123})
   }
 
   return (
     <div className='rightCom'>
-      <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+      <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
     </div>
   )
 }

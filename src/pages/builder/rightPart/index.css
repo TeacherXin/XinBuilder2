@@ -8,8 +8,17 @@
 }
 
 .attributeItem{
-  width: 200px;
+  width: 250px;
   height: 60px;
   display: flex;
   justify-content: space-between;
+}
+
+.attributeLabel {
+  width: 200px;
+  margin-top: 5px;
+  margin-right: 15px;
+  white-space: nowrap; /* 防止文字换行 */
+  overflow: hidden; /* 隐藏超出部分 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
 }

@@ -47,11 +47,15 @@ export default function MainCom() {
         zIndex:100
       }
       let comId = `comId_${Date.now()}`
-      comList.push({
+      const comNode = {
         comType: window.nowCom,
         style,
         comId
-      })
+      }
+      comList.push(comNode)
+      window.renderCom = comNode;
+      window.comList = comList;
+      window.setComList = setComList
       setSelectId(comId)
     }
     setComList([...comList])
