@@ -1,6 +1,8 @@
 import {useState, useRef} from 'react'
 import './index.css'
 import * as components from '../leftPart/component'
+import Store from '../../../store/index'
+import { subscribeHook } from '../../../store/subscribe'
 
 interface ComJson {
   comType: string,
@@ -18,9 +20,11 @@ interface Distance {
 
 export default function MainCom() {
 
-  const [comList, setComList] = useState<ComJson []>([])
-  const [dragCom, setDragCom] = useState<ComJson | null>(null)
+  const [dragComId, setDragComId] = useState<string>('')
   const [selectId, setSelectId] = useState<string>('')
+  const nowCom = Store.getState().dragCom
+  const comList = JSON.parse(JSON.stringify(Store.getState().comList))
+  subscribeHook()
 
   const distance = useRef<Distance>({
     startLeft: void 0,
@@ -33,12 +37,15 @@ export default function MainCom() {
     distance.current.endLeft = e.clientX;
     distance.current.endTop = e.clientY;
     let style: any;
-    if(window.nowCom === 'renderCom' && dragCom && dragCom.style) {
-      dragCom.style = {
-        ...dragCom.style,
-        left: parseInt(dragCom.style.left) + (e.clientX - (distance.current.startLeft || 0)) + 'px',
-        top: parseInt(dragCom.style.top) + (e.clientY - (distance.current.startTop || 0)) + 'px'
+    if(dragComId) {
+      const node = comList.find((item:ComJson) => item.comId === dragComId)
+      node.style = {
+        ...node.style,
+        left: parseInt(node.style.left) + (e.clientX - (distance.current.startLeft || 0)) + 'px',
+        top: parseInt(node.style.top) + (e.clientY - (distance.current.startTop || 0)) + 'px'
       }
+      setDragComId('')
+      Store.dispatch({type: 'changeSelectCom', value: dragComId});
     }else{
       style = {
         position: 'absolute',
@@ -48,17 +55,15 @@ export default function MainCom() {
       }
       let comId = `comId_${Date.now()}`
       const comNode = {
-        comType: window.nowCom,
+        comType: nowCom,
         style,
         comId
       }
       comList.push(comNode)
-      window.renderCom = comNode;
-      window.comList = comList;
-      window.setComList = setComList
       setSelectId(comId)
+      Store.dispatch({type: 'changeSelectCom', value: comId})
     }
-    setComList([...comList])
+    Store.dispatch({type: 'changeComList', value: comList})
   }
 
   const onDragEnter = (e: any) => {
@@ -71,8 +76,7 @@ export default function MainCom() {
 
   const onDragStart = (com: ComJson) => {
     return (e: any) => {
-      window.nowCom = 'renderCom';
-      setDragCom(com);
+      setDragComId(com.comId);
       distance.current.startLeft = e.clientX;
       distance.current.startTop = e.clientY;
     }
@@ -81,9 +85,7 @@ export default function MainCom() {
   const selectCom = (com: ComJson) => {
     return () => {
       setSelectId(com.comId);
-      window.renderCom = com;
-      window.comList = comList;
-      window.setComList = setComList
+      Store.dispatch({type: 'changeSelectCom', value: com.comId});
     }
   }
 
@@ -91,7 +93,7 @@ export default function MainCom() {
   return (
     <div onDrop={onDrop} onDragOver={onDragOver} onDragEnter={onDragEnter} className='mainCom'>
       {
-        comList.map(com => {
+        comList.map((com: ComJson) => {
           const Com = components[com.comType as keyof typeof components];
           return <div key={com.comId} onClick={selectCom(com)} draggable onDragStart={onDragStart(com)}>
             <div className={com.comId === selectId ? 'selectCom' : ''} style={com.style}>

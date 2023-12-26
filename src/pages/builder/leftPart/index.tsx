@@ -3,6 +3,7 @@ import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import * as components from './component'
 import { componentIconMap, componentTextMap } from './staticUtil/iconList';
+import Store from '../../../store';
 
 export default function LeftCom() {
 
@@ -22,7 +23,7 @@ export default function LeftCom() {
 
   const onDragStart = (name: string) => {
     return () => {
-      window.nowCom = name
+      Store.dispatch({type: 'changeNowCom', value: name});
     }
   }
 

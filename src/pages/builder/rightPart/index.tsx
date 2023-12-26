@@ -1,16 +1,20 @@
 import './index.css'
-import { Input, Tabs } from 'antd';
+import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import { attributeMap } from './staticUtils/attributeMap';
-import { useState } from 'react';
 import InputComponent from './staticComponet/InputComponent';
+import Store from '../../../store/index'
+import { subscribeHook } from '../../../store/subscribe'
 
 export default function RightCom() {
 
-  const [update, setUpdate] = useState({})
+  const comList = JSON.parse(JSON.stringify(Store.getState().comList))
+  const selectCom = Store.getState().selectCom
+  const selectNode = comList.find((item: any) => item.comId === selectCom)
+  subscribeHook()
 
   const getAttributePanel = () => {
-    const comType = window.renderCom?.comType;
+    const comType = selectNode?.comType;
     const comAttributeList = attributeMap[comType] || []
     return <div>
       {
@@ -18,7 +22,7 @@ export default function RightCom() {
           return <div key={index} className='attributeItem'>
           <label className='attributeLabel'>{item.label}</label>
           <div className='attributeItemValue'>
-            <InputComponent {...item} onChange={changeComAttribute(item.value)}/>
+            <InputComponent selectNode={selectNode} {...item} onChange={changeComAttribute(item.value)}/>
           </div>
         </div>
         })
@@ -32,8 +36,8 @@ export default function RightCom() {
       if(typeof e === 'object') {
         attribute = e.target.value;
       }
-      window.renderCom[value] = attribute;
-      window.setComList([...window.comList])
+      selectNode[value] = attribute;
+      Store.dispatch({type: 'changeComList', value:comList})
     }
   }
 
@@ -51,7 +55,7 @@ export default function RightCom() {
   ];
 
   const onChange = (value: string) => {
-    setUpdate({a: 123})
+
   }
 
   return (
