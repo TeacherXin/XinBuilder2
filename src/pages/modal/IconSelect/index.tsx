@@ -13,6 +13,7 @@ export default function IconSelect(props: any) {
 
   useEffect(() => {
     setSelectIcon(selectNode.type)
+  // eslint-disable-next-line
   },[openModal])
 
   const handleOk = () => {

@@ -53,6 +53,12 @@ const buttonAttribute: ComAttribute[] = [
       }
     ],
     defaultValue: 'middle'
+  },
+  {
+    label: '选择图标',
+    value: 'type',
+    type: 'modal',
+    modalType: 'IconSelect'
   }
 ]
 
