@@ -5,7 +5,8 @@ import
   DoubleRightOutlined,
   CheckOutlined,
   InfoCircleOutlined,
-  StarOutlined
+  StarOutlined,
+  LoginOutlined
 } from '@ant-design/icons';
 
 interface ComponentIconMap {
@@ -22,7 +23,8 @@ const componentIconMap: ComponentIconMap = {
   Input: DoubleRightOutlined,
   Checkbox: CheckOutlined,
   Radio: InfoCircleOutlined,
-  Rate: StarOutlined
+  Rate: StarOutlined,
+  Switch: LoginOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -31,7 +33,8 @@ const componentTextMap: ComponentTextMap = {
   Input: '输入框',
   Checkbox: '多选框',
   Radio: '单选框',
-  Rate: '评分'
+  Rate: '评分',
+  Switch: '开关'
 }
 
 export {

@@ -4,6 +4,7 @@ import Icon from "./icon";
 import Checkbox from "./checkBox";
 import Radio from "./radio";
 import Rate from './rate'
+import Switch from "./switch"
 
 export {
   Input,
@@ -11,5 +12,6 @@ export {
   Icon,
   Checkbox,
   Radio,
-  Rate
+  Rate,
+  Switch
 }
