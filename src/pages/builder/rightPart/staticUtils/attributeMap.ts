@@ -1,4 +1,5 @@
 import { buttonAttribute } from './comAttribute/buttonAttribute'
+import { checkboxAttribute } from './comAttribute/checkboxAttribute'
 import { iconAttribute } from './comAttribute/iconAttribute'
 import { inputAttribute } from './comAttribute/inputAttribute'
 
@@ -18,7 +19,8 @@ export interface ComAttribute {
 const attributeMap: AttributeMap = {
   Button: buttonAttribute,
   Input: inputAttribute,
-  Icon: iconAttribute
+  Icon: iconAttribute,
+  Checkbox: checkboxAttribute
 }
 
 export {

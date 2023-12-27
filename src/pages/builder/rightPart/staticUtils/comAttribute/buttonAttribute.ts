@@ -1,7 +1,7 @@
 import { ComAttribute } from "../attributeMap"
 const buttonAttribute: ComAttribute[] = [
   {
-    label: '设置按钮文字',
+    label: '设置标题',
     value: 'caption',
     type: 'input'
   },
