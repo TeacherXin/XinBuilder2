@@ -3,6 +3,7 @@ import { checkboxAttribute } from './comAttribute/checkboxAttribute'
 import { iconAttribute } from './comAttribute/iconAttribute'
 import { inputAttribute } from './comAttribute/inputAttribute'
 import { radioAttribute } from './comAttribute/radioAttribute'
+import { rateAttribute } from './comAttribute/rateAttribute'
 
 interface AttributeMap {
   [key: string]: ComAttribute[]
@@ -22,7 +23,8 @@ const attributeMap: AttributeMap = {
   Input: inputAttribute,
   Icon: iconAttribute,
   Checkbox: checkboxAttribute,
-  Radio: radioAttribute
+  Radio: radioAttribute,
+  Rate: rateAttribute
 }
 
 export {
