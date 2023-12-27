@@ -45,6 +45,7 @@ export default function MainCom() {
         top: parseInt(node.style.top) + (e.clientY - (distance.current.startTop || 0)) + 'px'
       }
       setDragComId('')
+      setSelectId(dragComId)
       Store.dispatch({type: 'changeSelectCom', value: dragComId});
     }else{
       style = {

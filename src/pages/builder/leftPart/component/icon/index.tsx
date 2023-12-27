@@ -1,7 +1,9 @@
-import React from 'react'
-
-export default function Icon() {
+export default function Icon(props: any) {
+  const { rotate, spin, type } = props;
+  const IconComponent = require('@ant-design/icons')[type || 'HomeOutlined']
   return (
-    <div>Icon</div>
+    <div>
+      <IconComponent rotate={rotate} spin={spin}/>
+    </div>
   )
 }

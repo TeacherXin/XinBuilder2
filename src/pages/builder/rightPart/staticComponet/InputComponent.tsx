@@ -1,9 +1,17 @@
-import { Input, Switch, Select} from "antd"
+import { Input, Switch, Select, Button} from "antd"
+import { useState } from 'react'
 
 export default function InputComponent(props: any) {
 
-  const { onChange, type, defaultValue, options, selectNode, value } = props
-  
+  const { onChange, type, defaultValue, options, selectNode, value, modalType,label } = props
+  const ModalComponent = require('../../../modal')[modalType || 'IconSelect'];
+  const [openModal, setOpenModal] = useState<boolean>(false)
+
+  const showModal = () => {
+    setOpenModal(true)
+  }
+
+
   const getComponent = () => {
     switch (type) {
       case 'input': {
@@ -15,12 +23,19 @@ export default function InputComponent(props: any) {
       case 'select': {
         return <Select value={selectNode[value] || defaultValue} style={{width:'120px'}}  options={options} defaultValue={defaultValue} onChange={onChange}></Select>
       }
+      case 'number': {
+        return <Input type="number" value={selectNode[value] || ''} style={{width:'120px'}} defaultValue={defaultValue} onChange = {onChange}/>
+      }
+      case 'modal': {
+        return <Button onClick={showModal} style={{width:'120px'}}>{label}</Button>
+      }
     }
   }
 
   return (
     <div>
       {getComponent()}
+      <ModalComponent  openModal={openModal} setOpenModal={setOpenModal}/>
     </div>
   )
 }

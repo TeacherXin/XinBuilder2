@@ -1,4 +1,5 @@
 import { buttonAttribute } from './comAttribute/buttonAttribute'
+import { iconAttribute } from './comAttribute/iconAttribute'
 import { inputAttribute } from './comAttribute/inputAttribute'
 
 interface AttributeMap {
@@ -10,12 +11,14 @@ export interface ComAttribute {
   value: string,
   type: string,
   options?: Array<any>,
-  defaultValue?: string
+  defaultValue?: string,
+  modalType?: string
 }
 
 const attributeMap: AttributeMap = {
   Button: buttonAttribute,
-  Input: inputAttribute
+  Input: inputAttribute,
+  Icon: iconAttribute
 }
 
 export {
