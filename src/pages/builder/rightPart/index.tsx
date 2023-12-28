@@ -5,16 +5,17 @@ import { attributeMap } from './staticUtils/attributeMap';
 import InputComponent from './staticComponet/InputComponent';
 import Store from '../../../store/index'
 import { subscribeHook } from '../../../store/subscribe'
+import { getComById } from '../../../utils/nodeUtils';
 
 export default function RightCom() {
 
   const comList = JSON.parse(JSON.stringify(Store.getState().comList))
   const selectCom = Store.getState().selectCom
-  const selectNode = comList.find((item: any) => item.comId === selectCom)
+  const selectNode = getComById(selectCom, comList)
   subscribeHook()
 
   const getAttributePanel = () => {
-    const comType = selectNode?.comType;
+    const comType = selectNode?.comType || '';
     const comAttributeList = attributeMap[comType] || []
     return <div>
       {
@@ -36,7 +37,9 @@ export default function RightCom() {
       if(typeof e === 'object') {
         attribute = e.target.value;
       }
-      selectNode[value] = attribute;
+      if(selectNode) {
+        selectNode[value as keyof typeof selectNode] = attribute;
+      }
       Store.dispatch({type: 'changeComList', value:comList})
     }
   }

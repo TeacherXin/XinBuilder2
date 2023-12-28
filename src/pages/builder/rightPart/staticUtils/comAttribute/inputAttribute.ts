@@ -42,6 +42,11 @@ const inputAttribute: ComAttribute[] = [
     ],
     defaultValue: 'middle'
   },
+  {
+    label: '标签',
+    value: 'label',
+    type: 'input'
+  },
 
 ]
 

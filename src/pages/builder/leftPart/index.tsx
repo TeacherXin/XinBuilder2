@@ -37,6 +37,11 @@ export default function LeftCom() {
       children: renderComponent(['Input','Checkbox','Radio','Rate','Switch']),
     },
     {
+      key: 'containerCom',
+      label: '容器组件',
+      children: renderComponent(['Form'])
+    },
+    {
       key: 'otherCom',
       label: '其他组件',
       children: renderComponent(['Button','Icon']),
