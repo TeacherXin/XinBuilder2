@@ -6,6 +6,7 @@ import InputComponent from './staticComponet/InputComponent';
 import Store from '../../../store/index'
 import { subscribeHook } from '../../../store/subscribe'
 import { getComById } from '../../../utils/nodeUtils';
+import { styleMap } from './staticUtils/styleMap';
 
 export default function RightCom() {
 
@@ -31,6 +32,23 @@ export default function RightCom() {
     </div>
   }
 
+  const getStylePanel = () => {
+    const comType = selectNode?.comType || '';
+    const styleList = styleMap[comType] || []
+    return <div>
+      {
+        styleList.map((item,index) => {
+          return <div key={index} className='attributeItem'>
+          <label className='attributeLabel'>{item.label}</label>
+          <div className='attributeItemValue'>
+            <InputComponent selectNode={selectNode} {...item} onChange={changeComStyle(item.value)}/>
+          </div>
+        </div>
+        })
+      }
+    </div>
+  }
+
   const changeComAttribute = (value: string) => {
     return (e: any) => {
       let attribute = e;
@@ -39,6 +57,29 @@ export default function RightCom() {
       }
       if(selectNode) {
         selectNode[value as keyof typeof selectNode] = attribute;
+      }
+      Store.dispatch({type: 'changeComList', value:comList})
+    }
+  }
+
+  const changeComStyle = (value: string) => {
+    return (e: any) => {
+      let attribute = e;
+      if(typeof e === 'object') {
+        if(['color', 'backgroundColor', 'borderColor'].includes(value)) {
+          attribute = e.toHexString()
+        }else{
+          attribute = e.target.value;
+        }
+      }
+      if(['width', 'height','borderWidth'].includes(value)) {
+        attribute += 'px'
+      }
+      if(selectNode) {
+        if(!selectNode.comStyle) {
+          selectNode.comStyle = {}
+        }
+        selectNode.comStyle[value] = attribute;
       }
       Store.dispatch({type: 'changeComList', value:comList})
     }
@@ -53,7 +94,7 @@ export default function RightCom() {
     {
       key: 'stylePanel',
       label: <div style={{fontSize:'18px',width:'100px',textAlign:'center'}}>样式</div>,
-      children: 'Content of Tab Pane 2',
+      children: getStylePanel(),
     }
   ];
 
