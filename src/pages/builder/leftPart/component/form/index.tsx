@@ -3,7 +3,7 @@ import { getComById } from "../../../../../utils/nodeUtils"
 import Store from "../../../../../store"
 
 export default function Form(props: any) {
-  const { children, disabled, labelAlign, labelWrap, size, colon } = props
+  const { children, disabled, labelAlign, labelWrap, size, colon, comStyle } = props
   return (
     <div>
       <AntForm
@@ -12,7 +12,7 @@ export default function Form(props: any) {
         labelWrap={labelWrap}
         size={size}
         colon={colon}
-        style={{width: '400px', height: '400px', border:' 1px solid blue'}}
+        style={{width: '400px', height: '400px', border:' 1px solid blue',...comStyle}}
       >
         {
           children && children.map((item: any) => {

@@ -1,4 +1,5 @@
 import { buttonStyle } from "./comStyle/buttonStyle"
+import { formStyle } from "./comStyle/formStyle"
 
 interface StyleMap {
   [key: string]: Style[]
@@ -14,7 +15,8 @@ export interface Style {
 }
 
 const styleMap: StyleMap = {
-  Button: buttonStyle
+  Button: buttonStyle,
+  Form: formStyle
 }
 
 export {

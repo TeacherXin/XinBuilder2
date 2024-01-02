@@ -30,7 +30,7 @@ export default function InputComponent(props: any) {
         return <Button onClick={showModal} style={{width:'120px'}}>{label}</Button>
       }
       case 'color': {
-        return <ColorPicker disabledAlpha showText value={selectNode?.comStyle?.[value] || ''} style={{width:'120px'}} defaultValue={defaultValue} onChangeComplete = {onChange}/>
+        return <ColorPicker disabledAlpha showText value={selectNode?.comStyle?.[value] || '#000000'} style={{width:'120px'}} defaultValue={defaultValue} onChangeComplete = {onChange}/>
       }
     }
   }
