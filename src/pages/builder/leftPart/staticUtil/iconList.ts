@@ -7,7 +7,8 @@ import
   InfoCircleOutlined,
   StarOutlined,
   LoginOutlined,
-  FormOutlined
+  FormOutlined,
+  CreditCardOutlined
 } from '@ant-design/icons';
 
 interface ComponentIconMap {
@@ -26,7 +27,8 @@ const componentIconMap: ComponentIconMap = {
   Radio: InfoCircleOutlined,
   Rate: StarOutlined,
   Switch: LoginOutlined,
-  Form: FormOutlined
+  Form: FormOutlined,
+  Card: CreditCardOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -37,7 +39,8 @@ const componentTextMap: ComponentTextMap = {
   Radio: '单选框',
   Rate: '评分',
   Switch: '开关',
-  Form: '表单'
+  Form: '表单',
+  Card: '卡片容器'
 }
 
 export {

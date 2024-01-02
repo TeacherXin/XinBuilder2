@@ -1,4 +1,5 @@
 import { buttonAttribute } from './comAttribute/buttonAttribute'
+import { cardAttribute } from './comAttribute/cardAttribute'
 import { checkboxAttribute } from './comAttribute/checkboxAttribute'
 import { formAttribute } from './comAttribute/formAttribute'
 import { iconAttribute } from './comAttribute/iconAttribute'
@@ -28,7 +29,8 @@ const attributeMap: AttributeMap = {
   Radio: radioAttribute,
   Rate: rateAttribute,
   Switch: switchAttribute,
-  Form: formAttribute
+  Form: formAttribute,
+  Card: cardAttribute
 }
 
 export {

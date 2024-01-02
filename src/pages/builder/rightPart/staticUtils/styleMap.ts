@@ -1,4 +1,5 @@
 import { buttonStyle } from "./comStyle/buttonStyle"
+import { cardStyle } from "./comStyle/cardStyle"
 import { formStyle } from "./comStyle/formStyle"
 import { iconStyle } from "./comStyle/iconStyle"
 import { inputStyle } from "./comStyle/inputStyle"
@@ -20,7 +21,8 @@ const styleMap: StyleMap = {
   Button: buttonStyle,
   Form: formStyle,
   Icon: iconStyle,
-  Input: inputStyle
+  Input: inputStyle,
+  Card: cardStyle
 }
 
 export {

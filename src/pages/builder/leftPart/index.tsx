@@ -39,7 +39,7 @@ export default function LeftCom() {
     {
       key: 'containerCom',
       label: '容器组件',
-      children: renderComponent(['Form'])
+      children: renderComponent(['Form', 'Card'])
     },
     {
       key: 'otherCom',
