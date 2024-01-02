@@ -11,6 +11,11 @@ const buttonStyle: Style[] = [
     type: 'number'
   },
   {
+    label: '字体大小',
+    value: 'fontSize',
+    type: 'number'
+  },
+  {
     label: '字体颜色',
     value: 'color',
     type: 'color'

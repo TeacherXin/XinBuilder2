@@ -72,7 +72,7 @@ export default function RightCom() {
           attribute = e.target.value;
         }
       }
-      if(['width', 'height','borderWidth'].includes(value)) {
+      if(['width', 'height','borderWidth','fontSize'].includes(value)) {
         attribute += 'px'
       }
       if(selectNode) {

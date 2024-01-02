@@ -1,9 +1,9 @@
 export default function Icon(props: any) {
-  const { rotate, spin, type } = props;
+  const { rotate, spin, type, comStyle } = props;
   const IconComponent = require('@ant-design/icons')[type || 'HomeOutlined']
   return (
     <div>
-      <IconComponent rotate={rotate} spin={spin}/>
+      <IconComponent style={{...comStyle}} rotate={rotate} spin={spin}/>
     </div>
   )
 }
