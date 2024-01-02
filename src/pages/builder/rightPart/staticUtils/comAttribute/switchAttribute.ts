@@ -2,6 +2,11 @@ import { ComAttribute } from "../attributeMap"
 
 const switchAttribute: ComAttribute[] = [
   {
+    label: '设置标题',
+    value: 'caption',
+    type: 'input'
+  },
+  {
     label: '组件大小',
     value: 'size',
     type: 'select',

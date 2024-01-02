@@ -4,7 +4,9 @@ import * as components from '../leftPart/component'
 import Store from '../../../store/index'
 import { subscribeHook } from '../../../store/subscribe'
 import { getComById } from '../../../utils/nodeUtils'
+import { componentTextMap } from '../leftPart/staticUtil/iconList'
 
+let num = 1;
 export interface ComJson {
   comType: string,
   comId: string,
@@ -62,7 +64,8 @@ export default function MainCom() {
       const comNode = {
         comType: nowCom,
         style,
-        comId
+        comId,
+        caption: componentTextMap[nowCom] + num++
       }
       comList.push(comNode)
       setSelectId(comId)
@@ -111,7 +114,8 @@ export default function MainCom() {
         let comId = `comId_${Date.now()}`
         const comNode = {
           comType: nowCom,
-          comId
+          comId,
+          caption: componentTextMap[nowCom] + num++
         }
         if(!com.childList) {
           com.childList = []

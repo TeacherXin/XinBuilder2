@@ -2,6 +2,11 @@ import { ComAttribute } from "../attributeMap"
 
 const formAttribute: ComAttribute[] = [
   {
+    label: '设置标题',
+    value: 'caption',
+    type: 'input'
+  },
+  {
     label: '设置表单组件禁用',
     value: 'disabled',
     type: 'switch'

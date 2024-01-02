@@ -1,13 +1,21 @@
 import './index.css'
-import { Tabs } from 'antd';
+import { Tabs, Tree, Dropdown } from 'antd';
 import type { TabsProps } from 'antd';
 import * as components from './component'
 import { componentIconMap, componentTextMap } from './staticUtil/iconList';
 import Store from '../../../store';
 import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
+import { subscribeHook } from '../../../store/subscribe';
+import EditJson from '../../modal/editJson';
+import { useState } from 'react';
 
 export default function LeftCom() {
+
+  const [showJson, setShowJson] = useState(false)
+  const [jsonComId, setJsonComId] = useState('')
+
+  subscribeHook()
 
   const onDragStart = (name: string) => {
     return () => {
@@ -48,6 +56,55 @@ export default function LeftCom() {
     }
   ];
 
+  const dropItems = [
+    {
+      label: '查看JSON',
+      key: 'showJson'
+    }
+  ]
+
+  const menuOnClick = (comId: string) =>{
+    return (menuItem: any) => {
+      if(menuItem.key === 'showJson'){
+        setShowJson(true)
+        setJsonComId(comId)
+      }
+    }
+  }
+
+  const getTreeList = () => {
+    const comList = Store.getState().comList;
+
+    const toTreeData = (arr: []) => {
+      return arr.map((item: any) => {
+        const node: any = {
+          title: <div>
+          <Dropdown menu={{onClick: menuOnClick(item.comId), items: dropItems }} trigger={['contextMenu']}>
+            <span>{item.caption}</span>
+          </Dropdown>
+        </div>,
+          key: item.comId,
+        }
+        if(item.childList) {
+          node.children = toTreeData(item.childList)
+        }
+        return node
+      })
+    }
+
+    const treeData = [{
+      title: '组件协议',
+      key: 'zujianxieyi',
+      children: toTreeData(comList)
+    }]
+    
+    return <Tree
+      className='leftList'
+      showLine={true}
+      treeData={treeData}
+    />
+  }
+
   const items: TabsProps['items'] = [
     {
       key: 'component',
@@ -57,7 +114,7 @@ export default function LeftCom() {
     {
       key: 'data',
       label: <div style={{fontSize:'18px',width:'100px',textAlign:'center'}}>数据</div>,
-      children: 'Content of Tab Pane 2',
+      children: getTreeList(),
     }
   ];
 
@@ -69,6 +126,7 @@ export default function LeftCom() {
   return (
     <div className='leftCom'>
       <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+      <EditJson jsonComId={jsonComId} showJson={showJson}  setShowJson={setShowJson}/>
     </div>
   )
 }

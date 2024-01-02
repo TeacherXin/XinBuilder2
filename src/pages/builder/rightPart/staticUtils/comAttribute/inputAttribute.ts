@@ -1,6 +1,11 @@
 import { ComAttribute } from "../attributeMap"
 const inputAttribute: ComAttribute[] = [
   {
+    label: '设置标题',
+    value: 'caption',
+    type: 'input'
+  },
+  {
     label: '设置后置标签',
     value: 'addonAfter',
     type: 'input'
