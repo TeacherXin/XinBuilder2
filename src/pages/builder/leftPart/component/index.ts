@@ -8,6 +8,7 @@ import Switch from "./switch"
 import Form from "./form"
 import Card from "./card"
 import FloatButton from "./floatButton";
+import Alert from "./alert";
 
 export {
   Input,
@@ -19,5 +20,6 @@ export {
   Switch,
   Form,
   Card,
-  FloatButton
+  FloatButton,
+  Alert
 }

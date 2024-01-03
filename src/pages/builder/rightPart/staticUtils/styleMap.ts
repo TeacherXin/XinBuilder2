@@ -1,3 +1,4 @@
+import { alertStyle } from "./comStyle/alertStyle"
 import { buttonStyle } from "./comStyle/buttonStyle"
 import { cardStyle } from "./comStyle/cardStyle"
 import { floatButtonStyle } from "./comStyle/floatButtonStyle"
@@ -24,7 +25,8 @@ const styleMap: StyleMap = {
   Icon: iconStyle,
   Input: inputStyle,
   Card: cardStyle,
-  FloatButton: floatButtonStyle
+  FloatButton: floatButtonStyle,
+  Alert: alertStyle
 }
 
 export {

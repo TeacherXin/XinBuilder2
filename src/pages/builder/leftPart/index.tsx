@@ -51,8 +51,13 @@ export default function LeftCom() {
     },
     {
       key: 'otherCom',
-      label: '其他组件',
+      label: '通用组件',
       children: renderComponent(['Button','Icon','FloatButton']),
+    },
+    {
+      key: 'feedbackCom',
+      label: '反馈组件',
+      children: renderComponent(['Alert'])
     }
   ];
 

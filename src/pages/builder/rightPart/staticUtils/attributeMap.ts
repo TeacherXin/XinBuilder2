@@ -1,3 +1,4 @@
+import { alertAttribute } from './comAttribute/alertAttribute'
 import { buttonAttribute } from './comAttribute/buttonAttribute'
 import { cardAttribute } from './comAttribute/cardAttribute'
 import { checkboxAttribute } from './comAttribute/checkboxAttribute'
@@ -32,7 +33,8 @@ const attributeMap: AttributeMap = {
   Switch: switchAttribute,
   Form: formAttribute,
   Card: cardAttribute,
-  FloatButton: floatButtonAttribute
+  FloatButton: floatButtonAttribute,
+  Alert: alertAttribute
 }
 
 export {

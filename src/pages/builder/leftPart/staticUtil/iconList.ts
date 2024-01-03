@@ -8,7 +8,8 @@ import
   StarOutlined,
   LoginOutlined,
   FormOutlined,
-  CreditCardOutlined
+  CreditCardOutlined,
+  AlertOutlined
 } from '@ant-design/icons';
 
 interface ComponentIconMap {
@@ -29,7 +30,8 @@ const componentIconMap: ComponentIconMap = {
   Switch: LoginOutlined,
   Form: FormOutlined,
   Card: CreditCardOutlined,
-  FloatButton: TabletOutlined
+  FloatButton: TabletOutlined,
+  Alert: AlertOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -42,7 +44,8 @@ const componentTextMap: ComponentTextMap = {
   Switch: '开关',
   Form: '表单',
   Card: '卡片容器',
-  FloatButton: '悬浮按钮'
+  FloatButton: '悬浮按钮',
+  Alert: '警告提示'
 }
 
 export {
