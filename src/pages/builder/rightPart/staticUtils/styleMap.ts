@@ -5,6 +5,7 @@ import { floatButtonStyle } from "./comStyle/floatButtonStyle"
 import { formStyle } from "./comStyle/formStyle"
 import { iconStyle } from "./comStyle/iconStyle"
 import { inputStyle } from "./comStyle/inputStyle"
+import { progressStyle } from "./comStyle/progressStyle"
 
 interface StyleMap {
   [key: string]: Style[]
@@ -26,7 +27,8 @@ const styleMap: StyleMap = {
   Input: inputStyle,
   Card: cardStyle,
   FloatButton: floatButtonStyle,
-  Alert: alertStyle
+  Alert: alertStyle,
+  Progress: progressStyle
 }
 
 export {

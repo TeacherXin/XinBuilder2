@@ -6,6 +6,7 @@ import { floatButtonAttribute } from './comAttribute/floatButtonAttribute'
 import { formAttribute } from './comAttribute/formAttribute'
 import { iconAttribute } from './comAttribute/iconAttribute'
 import { inputAttribute } from './comAttribute/inputAttribute'
+import { progressAttribute } from './comAttribute/progressAttribute'
 import { radioAttribute } from './comAttribute/radioAttribute'
 import { rateAttribute } from './comAttribute/rateAttribute'
 import { switchAttribute } from './comAttribute/switchAttribute'
@@ -34,7 +35,8 @@ const attributeMap: AttributeMap = {
   Form: formAttribute,
   Card: cardAttribute,
   FloatButton: floatButtonAttribute,
-  Alert: alertAttribute
+  Alert: alertAttribute,
+  Progress: progressAttribute
 }
 
 export {

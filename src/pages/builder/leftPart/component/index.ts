@@ -9,6 +9,7 @@ import Form from "./form"
 import Card from "./card"
 import FloatButton from "./floatButton";
 import Alert from "./alert";
+import Progress from "./progress";
 
 export {
   Input,
@@ -21,5 +22,6 @@ export {
   Form,
   Card,
   FloatButton,
-  Alert
+  Alert,
+  Progress
 }
