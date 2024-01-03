@@ -28,7 +28,8 @@ const componentIconMap: ComponentIconMap = {
   Rate: StarOutlined,
   Switch: LoginOutlined,
   Form: FormOutlined,
-  Card: CreditCardOutlined
+  Card: CreditCardOutlined,
+  FloatButton: TabletOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -40,7 +41,8 @@ const componentTextMap: ComponentTextMap = {
   Rate: '评分',
   Switch: '开关',
   Form: '表单',
-  Card: '卡片容器'
+  Card: '卡片容器',
+  FloatButton: '悬浮按钮'
 }
 
 export {

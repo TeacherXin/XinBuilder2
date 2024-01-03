@@ -6,7 +6,8 @@ import Radio from "./radio";
 import Rate from './rate'
 import Switch from "./switch"
 import Form from "./form"
-import Card from "./card";
+import Card from "./card"
+import FloatButton from "./floatButton";
 
 export {
   Input,
@@ -17,5 +18,6 @@ export {
   Rate,
   Switch,
   Form,
-  Card
+  Card,
+  FloatButton
 }

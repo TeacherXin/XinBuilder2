@@ -52,7 +52,7 @@ export default function LeftCom() {
     {
       key: 'otherCom',
       label: '其他组件',
-      children: renderComponent(['Button','Icon']),
+      children: renderComponent(['Button','Icon','FloatButton']),
     }
   ];
 

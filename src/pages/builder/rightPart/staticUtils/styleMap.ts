@@ -1,5 +1,6 @@
 import { buttonStyle } from "./comStyle/buttonStyle"
 import { cardStyle } from "./comStyle/cardStyle"
+import { floatButtonStyle } from "./comStyle/floatButtonStyle"
 import { formStyle } from "./comStyle/formStyle"
 import { iconStyle } from "./comStyle/iconStyle"
 import { inputStyle } from "./comStyle/inputStyle"
@@ -22,7 +23,8 @@ const styleMap: StyleMap = {
   Form: formStyle,
   Icon: iconStyle,
   Input: inputStyle,
-  Card: cardStyle
+  Card: cardStyle,
+  FloatButton: floatButtonStyle
 }
 
 export {

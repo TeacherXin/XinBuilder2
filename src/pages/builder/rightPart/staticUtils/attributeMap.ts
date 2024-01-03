@@ -1,6 +1,7 @@
 import { buttonAttribute } from './comAttribute/buttonAttribute'
 import { cardAttribute } from './comAttribute/cardAttribute'
 import { checkboxAttribute } from './comAttribute/checkboxAttribute'
+import { floatButtonAttribute } from './comAttribute/floatButtonAttribute'
 import { formAttribute } from './comAttribute/formAttribute'
 import { iconAttribute } from './comAttribute/iconAttribute'
 import { inputAttribute } from './comAttribute/inputAttribute'
@@ -30,7 +31,8 @@ const attributeMap: AttributeMap = {
   Rate: rateAttribute,
   Switch: switchAttribute,
   Form: formAttribute,
-  Card: cardAttribute
+  Card: cardAttribute,
+  FloatButton: floatButtonAttribute
 }
 
 export {
