@@ -11,6 +11,7 @@ import { qrcodeAttribute } from './comAttribute/qrcodeAttribute'
 import { radioAttribute } from './comAttribute/radioAttribute'
 import { rateAttribute } from './comAttribute/rateAttribute'
 import { switchAttribute } from './comAttribute/switchAttribute'
+import { tagAttribute } from './comAttribute/tagAttribute'
 
 interface AttributeMap {
   [key: string]: ComAttribute[]
@@ -38,7 +39,8 @@ const attributeMap: AttributeMap = {
   FloatButton: floatButtonAttribute,
   Alert: alertAttribute,
   Progress: progressAttribute,
-  QRCode: qrcodeAttribute
+  QRCode: qrcodeAttribute,
+  Tag: tagAttribute
 }
 
 export {

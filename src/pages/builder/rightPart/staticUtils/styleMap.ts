@@ -7,6 +7,7 @@ import { iconStyle } from "./comStyle/iconStyle"
 import { inputStyle } from "./comStyle/inputStyle"
 import { progressStyle } from "./comStyle/progressStyle"
 import { qrcodeStyle } from "./comStyle/qrcodeStyle"
+import { tagStyle } from "./comStyle/tagStyle"
 
 interface StyleMap {
   [key: string]: Style[]
@@ -30,7 +31,8 @@ const styleMap: StyleMap = {
   FloatButton: floatButtonStyle,
   Alert: alertStyle,
   Progress: progressStyle,
-  QRCode: qrcodeStyle
+  QRCode: qrcodeStyle,
+  Tag: tagStyle
 }
 
 export {

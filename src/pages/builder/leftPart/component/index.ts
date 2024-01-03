@@ -11,6 +11,7 @@ import FloatButton from "./floatButton";
 import Alert from "./alert";
 import Progress from "./progress";
 import QRCode from "./qrCode";
+import Tag from "./tag";
 
 export {
   Input,
@@ -25,5 +26,6 @@ export {
   FloatButton,
   Alert,
   Progress,
-  QRCode
+  QRCode,
+  Tag
 }

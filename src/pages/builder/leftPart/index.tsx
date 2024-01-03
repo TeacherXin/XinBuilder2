@@ -57,7 +57,12 @@ export default function LeftCom() {
     {
       key: 'feedbackCom',
       label: '反馈组件',
-      children: renderComponent(['Alert','Progress','QRCode'])
+      children: renderComponent(['Alert','Progress'])
+    },
+    {
+      key: 'showDataCom',
+      label: '数据展示组件',
+      children: renderComponent(['QRCode','Tag'])
     }
   ];
 
