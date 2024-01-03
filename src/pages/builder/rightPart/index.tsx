@@ -53,7 +53,7 @@ export default function RightCom() {
     return (e: any) => {
       let attribute = e;
       if(typeof e === 'object') {
-        if(['strokeColor'].includes(value)) {
+        if(['strokeColor','color','bgColor'].includes(value)) {
           attribute = e.toHexString()
         }else{
           attribute = e.target.value;

@@ -10,6 +10,7 @@ import Card from "./card"
 import FloatButton from "./floatButton";
 import Alert from "./alert";
 import Progress from "./progress";
+import QRCode from "./qrCode";
 
 export {
   Input,
@@ -23,5 +24,6 @@ export {
   Card,
   FloatButton,
   Alert,
-  Progress
+  Progress,
+  QRCode
 }

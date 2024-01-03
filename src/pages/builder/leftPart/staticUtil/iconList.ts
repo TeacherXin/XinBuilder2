@@ -10,7 +10,8 @@ import
   FormOutlined,
   CreditCardOutlined,
   AlertOutlined,
-  SmallDashOutlined
+  SmallDashOutlined,
+  QrcodeOutlined
 } from '@ant-design/icons';
 
 interface ComponentIconMap {
@@ -33,7 +34,8 @@ const componentIconMap: ComponentIconMap = {
   Card: CreditCardOutlined,
   FloatButton: TabletOutlined,
   Alert: AlertOutlined,
-  Progress: SmallDashOutlined
+  Progress: SmallDashOutlined,
+  QRCode: QrcodeOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -48,7 +50,8 @@ const componentTextMap: ComponentTextMap = {
   Card: '卡片容器',
   FloatButton: '悬浮按钮',
   Alert: '警告提示',
-  Progress: '进度条'
+  Progress: '进度条',
+  QRCode: '二维码'
 }
 
 export {
