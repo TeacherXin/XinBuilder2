@@ -4,6 +4,17 @@
   top: 10%;
   background-color: white;
   height: 90%;
+  overflow: auto;
+}
+
+.leftCom .ant-collapse-content-box{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  padding: 0 !important;
+  margin-bottom: 10px;
+  max-height: 60vh;
 }
 
 .componentItem{
