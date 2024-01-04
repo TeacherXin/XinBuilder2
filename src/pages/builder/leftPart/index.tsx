@@ -50,7 +50,7 @@ export default function LeftCom() {
       children: renderComponent(['Form', 'Card'])
     },
     {
-      key: 'otherCom',
+      key: 'currentrCom',
       label: '通用组件',
       children: renderComponent(['Button','Icon','FloatButton']),
     },
@@ -62,7 +62,7 @@ export default function LeftCom() {
     {
       key: 'showDataCom',
       label: '数据展示组件',
-      children: renderComponent(['QRCode','Tag'])
+      children: renderComponent(['QRCode','Tag','Avatar'])
     }
   ];
 

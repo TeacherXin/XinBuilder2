@@ -1,6 +1,6 @@
 import { Form as AntForm} from "antd"
-import { getComById } from "../../../../../utils/nodeUtils"
-import Store from "../../../../../store"
+import { getComById } from "../../../../../../utils/nodeUtils"
+import Store from "../../../../../../store"
 
 export default function Form(props: any) {
   const { children, disabled, labelAlign, labelWrap, size, colon, comStyle } = props

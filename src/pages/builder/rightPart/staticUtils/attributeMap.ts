@@ -1,4 +1,5 @@
 import { alertAttribute } from './comAttribute/alertAttribute'
+import { avatarAttribute } from './comAttribute/avatarAttribute'
 import { buttonAttribute } from './comAttribute/buttonAttribute'
 import { cardAttribute } from './comAttribute/cardAttribute'
 import { checkboxAttribute } from './comAttribute/checkboxAttribute'
@@ -40,7 +41,8 @@ const attributeMap: AttributeMap = {
   Alert: alertAttribute,
   Progress: progressAttribute,
   QRCode: qrcodeAttribute,
-  Tag: tagAttribute
+  Tag: tagAttribute,
+  Avatar: avatarAttribute
 }
 
 export {

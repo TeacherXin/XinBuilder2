@@ -1,4 +1,5 @@
 import { alertStyle } from "./comStyle/alertStyle"
+import { avatarStyle } from "./comStyle/avatarStyle"
 import { buttonStyle } from "./comStyle/buttonStyle"
 import { cardStyle } from "./comStyle/cardStyle"
 import { floatButtonStyle } from "./comStyle/floatButtonStyle"
@@ -32,7 +33,8 @@ const styleMap: StyleMap = {
   Alert: alertStyle,
   Progress: progressStyle,
   QRCode: qrcodeStyle,
-  Tag: tagStyle
+  Tag: tagStyle,
+  Avatar: avatarStyle
 }
 
 export {

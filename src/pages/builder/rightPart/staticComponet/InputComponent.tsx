@@ -38,7 +38,7 @@ export default function InputComponent(props: any) {
   return (
     <div>
       {getComponent()}
-      <ModalComponent  openModal={openModal} setOpenModal={setOpenModal}/>
+      <ModalComponent valueKey={value}  openModal={openModal} setOpenModal={setOpenModal}/>
     </div>
   )
 }

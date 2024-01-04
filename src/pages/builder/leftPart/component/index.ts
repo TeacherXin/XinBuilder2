@@ -1,17 +1,18 @@
-import Input from "./input";
-import Button from "./button";
-import Icon from "./icon";
-import Checkbox from "./checkBox";
-import Radio from "./radio";
-import Rate from './rate'
-import Switch from "./switch"
-import Form from "./form"
-import Card from "./card"
-import FloatButton from "./floatButton";
-import Alert from "./alert";
-import Progress from "./progress";
-import QRCode from "./qrCode";
-import Tag from "./tag";
+import Input from "./enterDataCom/input";
+import Button from "./currentrCom/button";
+import Icon from "./currentrCom/icon";
+import Checkbox from "./enterDataCom/checkBox";
+import Radio from "./enterDataCom/radio";
+import Rate from './enterDataCom/rate'
+import Switch from "./enterDataCom/switch"
+import Form from "./containerCom/form"
+import Card from "./containerCom/card"
+import FloatButton from "./currentrCom/floatButton";
+import Alert from "./feedbackCom/alert";
+import Progress from "./feedbackCom/progress";
+import QRCode from "./showDataCom/qrCode";
+import Tag from "./showDataCom/tag";
+import Avatar from "./showDataCom/avatar";
 
 export {
   Input,
@@ -27,5 +28,6 @@ export {
   Alert,
   Progress,
   QRCode,
-  Tag
+  Tag,
+  Avatar
 }
