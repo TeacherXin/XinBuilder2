@@ -13,6 +13,7 @@ import Progress from "./feedbackCom/progress";
 import QRCode from "./showDataCom/qrCode";
 import Tag from "./showDataCom/tag";
 import Avatar from "./showDataCom/avatar";
+import Badge from "./containerCom/badge";
 
 export {
   Input,
@@ -29,5 +30,6 @@ export {
   Progress,
   QRCode,
   Tag,
-  Avatar
+  Avatar,
+  Badge
 }

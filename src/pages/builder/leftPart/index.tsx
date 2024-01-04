@@ -47,7 +47,7 @@ export default function LeftCom() {
     {
       key: 'containerCom',
       label: '容器组件',
-      children: renderComponent(['Form', 'Card'])
+      children: renderComponent(['Form', 'Card','Badge'])
     },
     {
       key: 'currentrCom',

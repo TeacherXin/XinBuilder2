@@ -93,7 +93,7 @@ export default function MainCom() {
   const onDropContainer = (com: ComJson) => {
     return (e: any) => {
       const dragCom = getComById(dragComId, comList)
-      if(['Form', 'Card'].includes(com.comType)) {
+      if(['Form', 'Card', 'Badge'].includes(com.comType)) {
         if(dragCom && dragCom !== com) {
           const index = comList.findIndex((item: any) => item.comId === dragCom?.comId);
           if(index > -1) {
