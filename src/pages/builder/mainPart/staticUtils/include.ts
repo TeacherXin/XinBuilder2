@@ -7,7 +7,8 @@ let num = 1;
 const includesList: {[key: string]: string[] } = {
   Form: ['Input', 'Checkbox', 'Radio', 'Rate', 'Switch'],
   Card: ['Input', 'Checkbox', 'Radio', 'Rate', 'Switch', 'Button','Icon','Alert','Progress','Avatar','QrCode','Tag'],
-  Badge: ['Button','Avatar']
+  Badge: ['Button','Avatar'],
+  Carousel: ['Button']
 }
 
 const mainDropContainer = (e: any, com: ComJson, dragCom: ComJson, comList: ComJson[]) => {

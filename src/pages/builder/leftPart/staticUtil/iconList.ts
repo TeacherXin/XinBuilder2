@@ -14,7 +14,8 @@ import
   QrcodeOutlined,
   InstagramOutlined,
   UserOutlined,
-  InfoOutlined
+  InfoOutlined,
+  FileImageOutlined
 } from '@ant-design/icons';
 
 interface ComponentIconMap {
@@ -41,7 +42,8 @@ const componentIconMap: ComponentIconMap = {
   QRCode: QrcodeOutlined,
   Tag: InstagramOutlined,
   Avatar: UserOutlined,
-  Badge: InfoOutlined
+  Badge: InfoOutlined,
+  Carousel: FileImageOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -60,7 +62,8 @@ const componentTextMap: ComponentTextMap = {
   QRCode: '二维码',
   Tag: '标签',
   Avatar: '头像',
-  Badge: '徽标容器'
+  Badge: '徽标容器',
+  Carousel: '轮播图'
 }
 
 export {

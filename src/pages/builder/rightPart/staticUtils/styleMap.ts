@@ -2,6 +2,7 @@ import { alertStyle } from "./comStyle/alertStyle"
 import { avatarStyle } from "./comStyle/avatarStyle"
 import { buttonStyle } from "./comStyle/buttonStyle"
 import { cardStyle } from "./comStyle/cardStyle"
+import { carouselStyle } from "./comStyle/carouselStyle"
 import { floatButtonStyle } from "./comStyle/floatButtonStyle"
 import { formStyle } from "./comStyle/formStyle"
 import { iconStyle } from "./comStyle/iconStyle"
@@ -34,7 +35,8 @@ const styleMap: StyleMap = {
   Progress: progressStyle,
   QRCode: qrcodeStyle,
   Tag: tagStyle,
-  Avatar: avatarStyle
+  Avatar: avatarStyle,
+  Carousel: carouselStyle
 }
 
 export {

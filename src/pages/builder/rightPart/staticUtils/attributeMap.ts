@@ -3,6 +3,7 @@ import { avatarAttribute } from './comAttribute/avatarAttribute'
 import { badgeAttribute } from './comAttribute/badgeAttribute'
 import { buttonAttribute } from './comAttribute/buttonAttribute'
 import { cardAttribute } from './comAttribute/cardAttribute'
+import { carouselAttribute } from './comAttribute/carouselAttribute'
 import { checkboxAttribute } from './comAttribute/checkboxAttribute'
 import { floatButtonAttribute } from './comAttribute/floatButtonAttribute'
 import { formAttribute } from './comAttribute/formAttribute'
@@ -44,7 +45,8 @@ const attributeMap: AttributeMap = {
   QRCode: qrcodeAttribute,
   Tag: tagAttribute,
   Avatar: avatarAttribute,
-  Badge: badgeAttribute
+  Badge: badgeAttribute,
+  Carousel: carouselAttribute
 }
 
 export {
