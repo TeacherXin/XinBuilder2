@@ -21,7 +21,7 @@ interface ComponentIconMap {
   [key: string]: any
 }
 
-interface ComponentTextMap {
+export interface ComponentTextMap {
   [key: string]: string
 }
 

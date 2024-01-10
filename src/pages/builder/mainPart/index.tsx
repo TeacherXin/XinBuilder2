@@ -5,6 +5,7 @@ import Store from '../../../store/index'
 import { subscribeHook } from '../../../store/subscribe'
 import { getComById } from '../../../utils/nodeUtils'
 import { componentTextMap } from '../leftPart/staticUtil/iconList'
+import { includesList, leftDropContainer, mainDropContainer } from './staticUtils/include'
 
 let num = 1;
 export interface ComJson {
@@ -93,36 +94,18 @@ export default function MainCom() {
   const onDropContainer = (com: ComJson) => {
     return (e: any) => {
       const dragCom = getComById(dragComId, comList)
-      if(['Form', 'Card', 'Badge'].includes(com.comType)) {
+      if(Object.keys(includesList).includes(com.comType)) {
+        // 如果是画布区的拖拽要先将节点从comList中删除掉
         if(dragCom && dragCom !== com) {
-          const index = comList.findIndex((item: any) => item.comId === dragCom?.comId);
-          if(index > -1) {
-            comList.splice(index, 1)
-          }
-          if(!com.childList) {
-            com.childList = []
-          }
-          delete dragCom.style
-          com.childList.push(dragCom);
-          Store.dispatch({type: 'changeComList', value: comList})
-          e.stopPropagation()
+          mainDropContainer(e, com, dragCom, comList);
           setDragComId('')
           return;
         }else if(dragCom){
+          // 拖拽的是容器本身
           return;
         }
-        let comId = `comId_${Date.now()}`
-        const comNode = {
-          comType: nowCom,
-          comId,
-          caption: componentTextMap[nowCom] + num++
-        }
-        if(!com.childList) {
-          com.childList = []
-        }
-        com.childList.push(comNode);
-        Store.dispatch({type: 'changeComList', value: comList})
-        e.stopPropagation()
+        // 从左侧列表进行拖拽
+        leftDropContainer(e, com, nowCom, componentTextMap, comList);
       }
     }
   }
@@ -138,7 +121,7 @@ export default function MainCom() {
   const getComponent = (com: ComJson) => {
     const Com = components[com.comType as keyof typeof components];
     return <div onDrop={onDropContainer(com)} key={com.comId} onClick={selectCom(com)}>
-      <div  draggable onDragStart={onDragStart(com)} className={com.comId === selectId ? 'selectCom' : ''} style={com.style}>
+      <div draggable onDragStart={onDragStart(com)} className={com.comId === selectId ? 'selectCom' : ''} style={com.style}>
         <Com {...com} >
           {
             com.childList && com.childList.map(item => {

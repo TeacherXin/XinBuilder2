@@ -5,8 +5,8 @@ export default function Badge(props: any) {
   return (
     <div style={{width:'80px', height:'80px', border:'1px solid green'}}>
         {
-          children && children.map((item: any) => {
-            return <AntBadge color={color} dot={dot} size={size} status={status} count={count || 5}>
+          children && children.map((item: any, index: number) => {
+            return <AntBadge key={index} color={color} dot={dot} size={size} status={status} count={count || 5}>
               {item}
           </AntBadge>
           })
