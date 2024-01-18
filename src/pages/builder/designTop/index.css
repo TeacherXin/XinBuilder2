@@ -17,3 +17,9 @@
   font-style: italic;
   font-weight: bold;
 }
+
+.designTop button{
+  float: right;
+  margin-top: 20px;
+  margin-right: 10px;
+}
