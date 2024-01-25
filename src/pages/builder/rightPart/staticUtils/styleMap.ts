@@ -10,6 +10,7 @@ import { inputStyle } from "./comStyle/inputStyle"
 import { progressStyle } from "./comStyle/progressStyle"
 import { qrcodeStyle } from "./comStyle/qrcodeStyle"
 import { tagStyle } from "./comStyle/tagStyle"
+import { uploadStyle } from "./comStyle/uploadStyle"
 
 interface StyleMap {
   [key: string]: Style[]
@@ -36,7 +37,8 @@ const styleMap: StyleMap = {
   QRCode: qrcodeStyle,
   Tag: tagStyle,
   Avatar: avatarStyle,
-  Carousel: carouselStyle
+  Carousel: carouselStyle,
+  Upload: uploadStyle
 }
 
 export {

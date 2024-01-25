@@ -15,7 +15,8 @@ import
   InstagramOutlined,
   UserOutlined,
   InfoOutlined,
-  FileImageOutlined
+  FileImageOutlined,
+  UploadOutlined
 } from '@ant-design/icons';
 
 interface ComponentIconMap {
@@ -43,7 +44,8 @@ const componentIconMap: ComponentIconMap = {
   Tag: InstagramOutlined,
   Avatar: UserOutlined,
   Badge: InfoOutlined,
-  Carousel: FileImageOutlined
+  Carousel: FileImageOutlined,
+  Upload: UploadOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -63,7 +65,8 @@ const componentTextMap: ComponentTextMap = {
   Tag: '标签',
   Avatar: '头像',
   Badge: '徽标容器',
-  Carousel: '轮播图'
+  Carousel: '轮播图',
+  Upload: '上传图片'
 }
 
 export {

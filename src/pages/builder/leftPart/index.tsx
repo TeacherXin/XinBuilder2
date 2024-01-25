@@ -42,7 +42,7 @@ export default function LeftCom() {
     {
       key: 'enterDataCom',
       label: '数据录入组件',
-      children: renderComponent(['Input','Checkbox','Radio','Rate','Switch']),
+      children: renderComponent(['Input','Checkbox','Radio','Rate','Switch','Upload']),
     },
     {
       key: 'containerCom',
