@@ -16,6 +16,7 @@ import Avatar from "./showDataCom/avatar";
 import Badge from "./containerCom/badge";
 import Carousel from './containerCom/carousel'
 import Upload from "./enterDataCom/upload";
+import Image from "./showDataCom/image";
 
 export {
   Input,
@@ -35,5 +36,6 @@ export {
   Avatar,
   Badge,
   Carousel,
-  Upload
+  Upload,
+  Image
 }

@@ -45,7 +45,8 @@ const componentIconMap: ComponentIconMap = {
   Avatar: UserOutlined,
   Badge: InfoOutlined,
   Carousel: FileImageOutlined,
-  Upload: UploadOutlined
+  Upload: UploadOutlined,
+  Image: FileImageOutlined
 }
 
 const componentTextMap: ComponentTextMap = {
@@ -66,7 +67,8 @@ const componentTextMap: ComponentTextMap = {
   Avatar: '头像',
   Badge: '徽标容器',
   Carousel: '轮播图',
-  Upload: '上传图片'
+  Upload: '上传图片',
+  Image: '图片'
 }
 
 export {

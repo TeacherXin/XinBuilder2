@@ -6,6 +6,7 @@ import { carouselStyle } from "./comStyle/carouselStyle"
 import { floatButtonStyle } from "./comStyle/floatButtonStyle"
 import { formStyle } from "./comStyle/formStyle"
 import { iconStyle } from "./comStyle/iconStyle"
+import { imageStyle } from "./comStyle/imageStyle"
 import { inputStyle } from "./comStyle/inputStyle"
 import { progressStyle } from "./comStyle/progressStyle"
 import { qrcodeStyle } from "./comStyle/qrcodeStyle"
@@ -38,7 +39,8 @@ const styleMap: StyleMap = {
   Tag: tagStyle,
   Avatar: avatarStyle,
   Carousel: carouselStyle,
-  Upload: uploadStyle
+  Upload: uploadStyle,
+  Image: imageStyle
 }
 
 export {

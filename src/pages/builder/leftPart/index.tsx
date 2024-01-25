@@ -62,7 +62,7 @@ export default function LeftCom() {
     {
       key: 'showDataCom',
       label: '数据展示组件',
-      children: renderComponent(['QRCode','Tag','Avatar'])
+      children: renderComponent(['QRCode','Tag','Avatar','Image'])
     }
   ];
 

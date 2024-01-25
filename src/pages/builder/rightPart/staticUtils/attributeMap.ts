@@ -8,6 +8,7 @@ import { checkboxAttribute } from './comAttribute/checkboxAttribute'
 import { floatButtonAttribute } from './comAttribute/floatButtonAttribute'
 import { formAttribute } from './comAttribute/formAttribute'
 import { iconAttribute } from './comAttribute/iconAttribute'
+import { imageAttribute } from './comAttribute/imageAttribute'
 import { inputAttribute } from './comAttribute/inputAttribute'
 import { progressAttribute } from './comAttribute/progressAttribute'
 import { qrcodeAttribute } from './comAttribute/qrcodeAttribute'
@@ -48,7 +49,8 @@ const attributeMap: AttributeMap = {
   Avatar: avatarAttribute,
   Badge: badgeAttribute,
   Carousel: carouselAttribute,
-  Upload: uploadAttribute
+  Upload: uploadAttribute,
+  Image: imageAttribute
 }
 
 export {
