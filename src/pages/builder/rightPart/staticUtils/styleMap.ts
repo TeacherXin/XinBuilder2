@@ -12,6 +12,7 @@ import { progressStyle } from "./comStyle/progressStyle"
 import { qrcodeStyle } from "./comStyle/qrcodeStyle"
 import { tagStyle } from "./comStyle/tagStyle"
 import { uploadStyle } from "./comStyle/uploadStyle"
+import { tableStyle } from "./comStyle/tableStyle"
 
 interface StyleMap {
   [key: string]: Style[]
@@ -40,7 +41,8 @@ const styleMap: StyleMap = {
   Avatar: avatarStyle,
   Carousel: carouselStyle,
   Upload: uploadStyle,
-  Image: imageStyle
+  Image: imageStyle,
+  Table: tableStyle
 }
 
 export {

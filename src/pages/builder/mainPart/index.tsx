@@ -118,13 +118,13 @@ export default function MainCom() {
     }
   }
 
-  const getComponent = (com: ComJson) => {
+  const getComponent = (com: any) => {
     const Com = components[com.comType as keyof typeof components];
     return <div onDrop={onDropContainer(com)} key={com.comId} onClick={selectCom(com)}>
       <div draggable onDragStart={onDragStart(com)} className={com.comId === selectId ? 'selectCom' : ''} style={com.style}>
         <Com {...com} >
           {
-            com.childList && com.childList.map(item => {
+            com.childList && com.childList.map((item: any) => {
               return getComponent(item)
             })
           }

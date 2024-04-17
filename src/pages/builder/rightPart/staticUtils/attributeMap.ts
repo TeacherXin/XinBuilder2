@@ -17,6 +17,7 @@ import { rateAttribute } from './comAttribute/rateAttribute'
 import { switchAttribute } from './comAttribute/switchAttribute'
 import { tagAttribute } from './comAttribute/tagAttribute'
 import { uploadAttribute } from './comAttribute/uploadAttribute'
+import { tableAttribute } from './comAttribute/tableAttribute'
 
 interface AttributeMap {
   [key: string]: ComAttribute[]
@@ -50,7 +51,8 @@ const attributeMap: AttributeMap = {
   Badge: badgeAttribute,
   Carousel: carouselAttribute,
   Upload: uploadAttribute,
-  Image: imageAttribute
+  Image: imageAttribute,
+  Table: tableAttribute
 }
 
 export {
