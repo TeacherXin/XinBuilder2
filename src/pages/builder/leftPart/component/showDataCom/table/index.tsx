@@ -8,16 +8,18 @@ const Table: React.FunctionComponent = (props: any) => {
   
 
     useEffect(() => {
-        axios.post("http://localhost:4000/entity/getEntityData", {entityCode})
-        .then(res => {
-            if(res.data.data) {
-                setEntityData(res.data.data)
-            }
-        })
+        if(entityCode) {
+            axios.post("http://localhost:4000/entity/getEntityData", {entityCode})
+            .then(res => {
+                if(res.data.data) {
+                    setEntityData(res.data.data)
+                }
+            })
+        }
     }, [entityCode])
 
     const getColumns = () => {
-        return schemaList.map((item: any) => {
+        return (schemaList || []).map((item: any) => {
             return {
                 title: item,
                 dataIndex: item,
