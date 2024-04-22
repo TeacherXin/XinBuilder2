@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Table as AntTable, message } from 'antd';
+import { Table as AntTable } from 'antd';
 import axios from 'axios';
 
 const Table: React.FunctionComponent = (props: any) => {

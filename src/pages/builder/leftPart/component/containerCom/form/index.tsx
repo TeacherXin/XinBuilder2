@@ -1,9 +1,49 @@
-import { Form as AntForm} from "antd"
-import { getComById } from "../../../../../../utils/nodeUtils"
+import { Form as AntForm, Button, message} from "antd"
+import { getComById, createCom } from "../../../../../../utils/nodeUtils"
 import Store from "../../../../../../store"
+import { useEffect } from "react"
+import axios from "axios"
 
 export default function Form(props: any) {
-  const { children, disabled, labelAlign, labelWrap, size, colon, comStyle } = props
+  const { children, disabled, labelAlign, labelWrap, size, colon, comStyle, entityCode, schemaList, comId} = props
+  const comList = JSON.parse(JSON.stringify(Store.getState().comList))
+  const formNode = getComById(comId, comList);
+
+  useEffect(() => {
+    if(entityCode && schemaList?.length > 0) {
+      formNode.childList = []
+      const inputList = schemaList.map((item: string) => {
+        return createCom({comType: 'Input', caption: item, label: item})
+      })
+      formNode.childList.push(...inputList)
+      Store.dispatch({type: 'changeComList', value: JSON.parse(JSON.stringify(comList))})
+    }
+  }, [])
+
+  const submit = () => {
+    const childList = formNode.childList || [];
+    const data: any = {};
+    childList.forEach((element: any) => {
+      if(element.label) {
+        data[element.label] = element.value
+      }
+    });
+
+    if(entityCode) {
+      axios.post("http://localhost:4000/entity/addEntityData", {
+        entityCode,
+        entityParam: {...data}
+      })
+      .then(res => {
+        if(res.data.code === 200) {
+          message.success('添加成功')
+        }else {
+          message.error('添加失败')
+        }
+      })
+    }
+  }
+
   return (
     <div>
       <AntForm
@@ -16,12 +56,13 @@ export default function Form(props: any) {
       >
         {
           children && children.map((item: any) => {
-            return <AntForm.Item label={getComById(item.key, Store.getState().comList).label}>
+            return <AntForm.Item label={getComById(item.key, comList).label}>
               {item}
             </AntForm.Item>
           })
         }
       </AntForm>
+      {entityCode && <Button onClick={submit} style={{float:"right"}} type="primary">保存</Button>}
     </div>
   )
 }

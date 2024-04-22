@@ -1,6 +1,8 @@
 import { ComJson } from "../pages/builder/mainPart";
 import Store from "../store";
 
+let num = 0;
+
 const getComById = (comId: string, comList: ComJson []): any => {
   const treeList = [...comList] || [...Store.getState().comList];
 
@@ -13,6 +15,18 @@ const getComById = (comId: string, comList: ComJson []): any => {
   }
 }
 
+const createCom = (props: any) => {
+  const { comType, caption = `${comType}${++num}` } = props;
+  let comId = `comId_${Date.now()}${++num}`;
+  return {
+    comId,
+    comType,
+    caption,
+    ...props
+  }
+}
+
 export {
-  getComById
+  getComById,
+  createCom
 }

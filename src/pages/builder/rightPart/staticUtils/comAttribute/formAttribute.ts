@@ -7,6 +7,12 @@ const formAttribute: ComAttribute[] = [
     type: 'input'
   },
   {
+    label: '选择实体',
+    value: 'entityCode',
+    type: 'modal',
+    modalType: 'EntitySelect'
+  },
+  {
     label: '设置表单组件禁用',
     value: 'disabled',
     type: 'switch'
