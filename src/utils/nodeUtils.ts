@@ -26,7 +26,16 @@ const createCom = (props: any) => {
   }
 }
 
+const isRender = () => {
+  if(window.location.pathname === '/render') {
+    return true;
+  }else {
+    return false;
+  }
+}
+
 export {
   getComById,
-  createCom
+  createCom,
+  isRender
 }

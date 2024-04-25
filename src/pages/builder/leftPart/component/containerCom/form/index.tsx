@@ -1,5 +1,5 @@
 import { Form as AntForm, Button, message} from "antd"
-import { getComById, createCom } from "../../../../../../utils/nodeUtils"
+import { getComById, createCom, isRender } from "../../../../../../utils/nodeUtils"
 import Store from "../../../../../../store"
 import { useEffect } from "react"
 import axios from "axios"
@@ -21,6 +21,9 @@ export default function Form(props: any) {
   }, [])
 
   const submit = () => {
+    if(!isRender()) {
+      return;
+    }
     const childList = formNode.childList || [];
     const data: any = {};
     childList.forEach((element: any) => {

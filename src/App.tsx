@@ -1,10 +1,18 @@
 import Builder from './pages/builder';
+import Render from './pages/render';
+import { BrowserRouter, Routes ,Route } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <Builder />
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" Component={Builder} />
+        </Routes>
+        <Routes>
+          <Route path="/render" Component={Render} />
+        </Routes>
+      </BrowserRouter>
   );
 }
 

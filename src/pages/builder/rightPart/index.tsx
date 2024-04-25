@@ -1,5 +1,5 @@
 import './index.css'
-import { Tabs } from 'antd';
+import { Button, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import { attributeMap } from './staticUtils/attributeMap';
 import InputComponent from './staticComponet/InputComponent';
@@ -7,6 +7,7 @@ import Store from '../../../store/index'
 import { subscribeHook } from '../../../store/subscribe'
 import { getComById } from '../../../utils/nodeUtils';
 import { styleMap } from './staticUtils/styleMap';
+import { actionMap } from './staticUtils/comAction';
 
 export default function RightCom() {
 
@@ -48,6 +49,17 @@ export default function RightCom() {
       }
     </div>
   }
+
+  const getActionPanel = () => {
+    const comType = selectNode?.comType || '';
+    return <div className='actionPanel'>
+      {
+        (actionMap?.[comType as keyof typeof actionMap] || []).map((item, index) => {
+          return <Button key={index}>{item}</Button>
+        })
+      }
+    </div>
+  } 
 
   const changeComAttribute = (value: string) => {
     return (e: any) => {
@@ -99,6 +111,11 @@ export default function RightCom() {
       key: 'stylePanel',
       label: <div style={{fontSize:'18px',width:'100px',textAlign:'center'}}>样式</div>,
       children: getStylePanel(),
+    },
+    {
+      key: 'actionPanel',
+      label: <div style={{fontSize:'18px',width:'100px',textAlign:'center'}}>动作</div>,
+      children: getActionPanel(),
     }
   ];
 
