@@ -1,0 +1,54 @@
+.actinFooter{
+    width: 120px;
+    position: absolute;
+    display: flex;
+    left: 447px;
+    top: 409px;
+    justify-content: space-between;
+  }
+  
+  .editAction{
+    position: absolute;
+    z-index: 100;
+    top: 100px;
+  }
+  .editAction .textarea{
+    position: absolute;
+    left: -40px;
+    width: 600px;
+    height: 400px;
+    resize: none;
+  }
+  
+  .editAction .tab{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    border: 1px solid rgb(209, 209, 233);
+    margin-right: 100px;
+    margin-bottom: 1px;
+    text-align: center;
+    line-height: 26px;
+  }
+  
+  .editAction .tab:hover{
+    background-color: rgb(194, 191, 241);
+  }
+  
+  .selected {
+    background-color: rgb(147, 141, 237);
+  }
+  
+  .code-wrapper {
+    display: flex;
+    height: calc(100vh);
+    background: #f0f0f0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ace_editor{
+    height: 400px !important;
+  }

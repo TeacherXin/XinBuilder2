@@ -8,12 +8,16 @@ import { subscribeHook } from '../../../store/subscribe'
 import { getComById } from '../../../utils/nodeUtils';
 import { styleMap } from './staticUtils/styleMap';
 import { actionMap } from './staticUtils/comAction';
+import EditAction from '../../modal/editAction';
+import { useState } from 'react';
 
 export default function RightCom() {
 
   const comList = JSON.parse(JSON.stringify(Store.getState().comList))
   const selectCom = Store.getState().selectCom
   const selectNode = getComById(selectCom, comList)
+  const [showAction, setShowAction] = useState<boolean>(false);
+  const [actionName, setActionName] = useState<string>('')
   subscribeHook()
 
   const getAttributePanel = () => {
@@ -55,12 +59,18 @@ export default function RightCom() {
     return <div className='actionPanel'>
       {
         (actionMap?.[comType as keyof typeof actionMap] || []).map((item, index) => {
-          return <Button key={index}>{item}</Button>
+          return <Button onClick={showActionModal(item)} key={index}>{item}</Button>
         })
       }
     </div>
   } 
 
+  const showActionModal = (action: string) => {
+    return () => {
+      setShowAction(true);
+      setActionName(action);
+    }
+  }
   const changeComAttribute = (value: string) => {
     return (e: any) => {
       let attribute = e;
@@ -124,8 +134,11 @@ export default function RightCom() {
   }
 
   return (
-    <div className='rightCom'>
-      <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
+    <div>
+      <div className='rightCom'>
+        <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
+      </div>
+      <EditAction setShowAction={setShowAction} actionName={actionName} showAction={showAction} />
     </div>
   )
 }
