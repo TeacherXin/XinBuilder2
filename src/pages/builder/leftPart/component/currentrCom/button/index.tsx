@@ -1,5 +1,6 @@
 import { Button as AntButton } from 'antd'
-import { actionFun, useStateByProps } from '../../../../../../utils/actionUtils';
+import { actionFun } from '../../../../../../utils/actionUtils';
+import { useStateByProps } from '../../../../../../hook/actionHook';
 
 export default function Button(props: any) {
   const { comStyle, onClick, comId } = props

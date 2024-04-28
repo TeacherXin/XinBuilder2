@@ -14,17 +14,6 @@ const actionFun = (callback: string): void => {
     }
 }
 
-const useStateByProps = (propName: string, props: any, comId: string) => {
-  const [state, dispatch] = useState(props[propName])
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  if(isRender()) {
-    const Ctx = window.getNodeById(comId);
-    Ctx['set' + propName.charAt(0).toLocaleUpperCase() + propName.slice(1)] = dispatch;
-    return state
-  }
-}
-
 export {
-    actionFun,
-    useStateByProps
+    actionFun
 }
