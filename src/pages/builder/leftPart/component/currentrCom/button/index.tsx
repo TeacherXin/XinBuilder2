@@ -1,8 +1,16 @@
 import { Button as AntButton } from 'antd'
-import { actionFun } from '../../../../../../utils/actionUtils';
+import { actionFun, useStateByProps } from '../../../../../../utils/actionUtils';
 
 export default function Button(props: any) {
-  const { caption, danger, disabled, ghost, shape, size, type, comStyle, onClick } = props
+  const { comStyle, onClick, comId } = props
+  const caption = useStateByProps('caption', props, comId)
+  const danger = useStateByProps('danger', props, comId)
+  const disabled = useStateByProps('disabled', props, comId)
+  const ghost = useStateByProps('ghost', props, comId)
+  const shape = useStateByProps('shape', props, comId)
+  const size = useStateByProps('size', props, comId)
+  const type = useStateByProps('type', props, comId)
+
   const IconComponent = require('@ant-design/icons')[type]
 
   const onclick = () => {

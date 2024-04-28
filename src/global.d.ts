@@ -6,5 +6,7 @@ declare global {
     renderCom: ANY,
     comList: ANY,
     setComList: ANY,
+    ctx: ANY,
+    getNodeById: ANY
   }
 }
