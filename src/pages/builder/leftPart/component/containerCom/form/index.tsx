@@ -1,5 +1,6 @@
 import { Form as AntForm, Button, message} from "antd"
-import { getComById, createCom, isRender } from "../../../../../../utils/nodeUtils"
+import { getComById, createCom } from "../../../../../../utils/nodeUtils"
+import { isRender } from "../../../../../../utils/renderUtils"
 import Store from "../../../../../../store"
 import { useEffect } from "react"
 import axios from "axios"

@@ -1,20 +1,12 @@
 import { Button as AntButton } from 'antd'
-import { isRender } from '../../../../../../utils/nodeUtils';
+import { actionFun } from '../../../../../../utils/actionUtils';
 
 export default function Button(props: any) {
   const { caption, danger, disabled, ghost, shape, size, type, comStyle, onClick } = props
   const IconComponent = require('@ant-design/icons')[type]
 
   const onclick = () => {
-    if(!isRender()){
-      return;
-    }
-    try {
-      const fun = new Function(onClick);
-      fun()
-    } catch (error) {
-      console.error(error);
-    }
+    actionFun(onClick);
   }
 
   return (

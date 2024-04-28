@@ -3,7 +3,12 @@ export interface ActionMap {
 }
 
 const actionMap = {
-    Button: ['onClick', 'onMousedown', 'onMouseup']
+    Button: ['onClick'],
+    FloatButton: ['onClick'],
+    Icon: ['onClick'],
+    Input: ['onChange'],
+    Switch: ['onChange'],
+    Checkbox: ['onChange']
 }
 
 export {

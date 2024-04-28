@@ -1,10 +1,16 @@
 import { Switch as AntSwitch } from "antd"
+import { actionFun } from "../../../../../../utils/actionUtils";
 
 export default function Switch(props: any) {
-  const { disabled, size } = props
+  const { disabled, size, onChange } = props;
+
+  const onchange = () => {
+    actionFun(onChange)
+  }
+
   return (
     <div>
-      <AntSwitch disabled={disabled} size={size} />
+      <AntSwitch onChange={onchange} disabled={disabled} size={size} />
     </div>
   )
 }
