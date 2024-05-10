@@ -4,9 +4,15 @@ import { isRender } from "../../../../../../utils/renderUtils"
 import Store from "../../../../../../store"
 import { useEffect } from "react"
 import axios from "axios"
+import { useStateByProps } from '../../../../../../hook/actionHook';
 
 export default function Form(props: any) {
-  const { children, disabled, labelAlign, labelWrap, size, colon, comStyle, entityCode, schemaList, comId} = props
+  const { children, comStyle, entityCode, schemaList, comId} = props
+  const disabled = useStateByProps('disabled', props, comId);
+  const labelAlign = useStateByProps('labelAlign', props, comId);
+  const labelWrap = useStateByProps('labelWrap', props, comId);
+  const size = useStateByProps('size', props, comId);
+  const colon = useStateByProps('colon', props, comId);
   const comList = JSON.parse(JSON.stringify(Store.getState().comList))
   const formNode = getComById(comId, comList);
 

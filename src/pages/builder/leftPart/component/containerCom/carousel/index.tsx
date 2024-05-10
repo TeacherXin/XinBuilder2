@@ -1,7 +1,12 @@
 import { Carousel as AntCarousel } from 'antd';
+import { useStateByProps } from '../../../../../../hook/actionHook';
 
 export default function Carousel(props: any) {
-  const { children, autoplay, autoplaySpeed, dotPosition, fade, comStyle } = props
+  const { children, comStyle, comId } = props
+  const autoplay = useStateByProps('autoplay', props, comId);
+  const autoplaySpeed = useStateByProps('autoplaySpeed', props, comId);
+  const dotPosition = useStateByProps('dotPosition', props, comId);
+  const fade = useStateByProps('fade', props, comId);
   return (
     <div>
     <AntCarousel

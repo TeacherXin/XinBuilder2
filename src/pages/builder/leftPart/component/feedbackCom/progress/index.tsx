@@ -1,7 +1,14 @@
 import { Progress as AntProgress } from 'antd';
+import { useStateByProps } from '../../../../../../hook/actionHook';
 
 export default function Progress(props: any) {
-  const { percent, showInfo, strokeColor, status, size, comStyle, type } = props
+  const { comStyle, comId } = props
+  const percent = useStateByProps('percent', props, comId)
+  const showInfo = useStateByProps('showInfo', props, comId)
+  const strokeColor = useStateByProps('strokeColor', props, comId)
+  const status = useStateByProps('status', props, comId)
+  const size = useStateByProps('size', props, comId)
+  const type = useStateByProps('type', props, comId)
   return (
     <div>
       <AntProgress
