@@ -2,16 +2,17 @@ import { configureStore } from '@reduxjs/toolkit'
 const initialState  = { comList: [], dragCom: '', selectCom: '' }
 window.ctx = null;
 
-const getNodeById = (comId: string): any => {
-  const treeList = window.ctx || [];
-
+const getNodeById = (comId: string, modalTx: any): any => {
+  const treeList = modalTx || window.ctx || [];
+  let result = null;
   for (let i = 0; i < treeList.length; i++) {
       if (treeList[i].comId === comId) {
-          return treeList[i]
+          result = treeList[i];
       } else if (treeList[i].childList) {
-          treeList.push(...(treeList[i].childList || []))
+          result = getNodeById(comId, treeList[i].childList);
       }
   }
+  return result
 }
 
 window.getNodeById = getNodeById;
