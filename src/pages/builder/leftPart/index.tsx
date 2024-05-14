@@ -1,5 +1,5 @@
 import './index.css'
-import { Tabs, Tree, Dropdown } from 'antd';
+import { Tabs, Tree, message, Dropdown } from 'antd';
 import type { TabsProps } from 'antd';
 import * as components from './component'
 import { componentIconMap, componentTextMap } from './staticUtil/iconList';
@@ -8,12 +8,27 @@ import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 import { subscribeHook } from '../../../store/subscribe';
 import EditJson from '../../modal/editJson';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { LeftOutlined } from '@ant-design/icons'
 
 export default function LeftCom() {
 
   const [showJson, setShowJson] = useState(false)
   const [jsonComId, setJsonComId] = useState('')
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    const keydownFun = (e: any) => {
+      if(e.key === 'a') {
+        setVisible(true)
+      }
+    }
+    document.addEventListener('keydown', keydownFun);
+
+    return () => {
+      document.removeEventListener('keydown', keydownFun)
+    }
+  }, [])
 
   subscribeHook()
 
@@ -132,11 +147,19 @@ export default function LeftCom() {
 
   }
 
+  const hideDesignLeft = () => {
+    setVisible(false);
+    message.info('键盘a按钮按下，恢复顶部栏')
+  }
+
 
   return (
-    <div className='leftCom'>
+    <div style={ visible ?  {} : {display: 'none'}} className='leftCom'>
       <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
       <EditJson jsonComId={jsonComId} showJson={showJson}  setShowJson={setShowJson}/>
+      <div onClick={hideDesignLeft} className='icon'>
+        <LeftOutlined />
+      </div>
     </div>
   )
 }

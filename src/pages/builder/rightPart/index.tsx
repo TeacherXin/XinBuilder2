@@ -1,5 +1,5 @@
 import './index.css'
-import { Button, Tabs } from 'antd';
+import { Button, Tabs, message } from 'antd';
 import type { TabsProps } from 'antd';
 import { attributeMap } from './staticUtils/attributeMap';
 import InputComponent from './staticComponet/InputComponent';
@@ -9,7 +9,8 @@ import { getComById } from '../../../utils/nodeUtils';
 import { styleMap } from './staticUtils/styleMap';
 import { actionMap } from './staticUtils/comAction';
 import EditAction from '../../modal/editAction';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { RightOutlined } from '@ant-design/icons'
 
 export default function RightCom() {
 
@@ -18,6 +19,20 @@ export default function RightCom() {
   const selectNode = getComById(selectCom, comList)
   const [showAction, setShowAction] = useState<boolean>(false);
   const [actionName, setActionName] = useState<string>('')
+  const [visible, setVisible] = useState(true)
+
+  useEffect(() => {
+    const keydownFun = (e: any) => {
+      if(e.key === 'd') {
+        setVisible(true)
+      }
+    }
+    document.addEventListener('keydown', keydownFun);
+
+    return () => {
+      document.removeEventListener('keydown', keydownFun)
+    }
+  }, [])
   subscribeHook()
 
   const getAttributePanel = () => {
@@ -133,12 +148,20 @@ export default function RightCom() {
 
   }
 
+  const hideDesignRight = () => {
+    setVisible(false);
+    message.info('键盘d按钮按下，恢复顶部栏')
+  }
+
   return (
-    <div>
-      <div className='rightCom'>
+    <div className='rightCom' style={ visible ?  {} : {display: 'none'}}>
+      <div>
         <Tabs defaultActiveKey='1' items={items} onChange={onChange} />
       </div>
       <EditAction setShowAction={setShowAction} actionName={actionName} showAction={showAction} />
+      <div onClick={hideDesignRight} className='icon'>
+        <RightOutlined />
+      </div>
     </div>
   )
 }
