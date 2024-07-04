@@ -50,6 +50,7 @@ export default function MainCom() {
         comList.push(newNode);
         Store.dispatch({type: 'changeComList', value: comList});
         setSelectId(comId);
+        Store.dispatch({type: 'changeSelectCom', value: comId});
       }
     }
     const mouseMove = (e: any) => {
