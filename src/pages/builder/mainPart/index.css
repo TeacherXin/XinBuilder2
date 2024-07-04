@@ -6,3 +6,16 @@
 .selectCom{
   border: 0.5px solid #1677ff;
 }
+
+.buttonList {
+  position: absolute;
+  right: 0;
+  top: -25px;
+  display: flex;
+  width: 40px;
+  justify-content: space-between;
+  span {
+    color: #1677ff;
+    cursor: pointer;
+  }
+}

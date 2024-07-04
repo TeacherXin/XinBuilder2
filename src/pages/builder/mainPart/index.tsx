@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import './index.css'
 import * as components from '../leftPart/component'
 import Store from '../../../store/index'
@@ -6,6 +6,8 @@ import { subscribeHook } from '../../../store/subscribe'
 import { getComById } from '../../../utils/nodeUtils'
 import { componentTextMap } from '../leftPart/staticUtil/iconList'
 import { includesList, leftDropContainer, mainDropContainer } from './staticUtils/include'
+import { DeleteOutlined, CopyOutlined } from '@ant-design/icons'
+import { message } from 'antd'
 
 let num = 1;
 export interface ComJson {
@@ -27,9 +29,40 @@ export default function MainCom() {
 
   const [dragComId, setDragComId] = useState<string>('')
   const [selectId, setSelectId] = useState<string>('')
+  const [copyNode, setCopyNode] = useState<ComJson>();
   const nowCom = Store.getState().dragCom
   const comList = JSON.parse(JSON.stringify(Store.getState().comList))
   subscribeHook()
+  let currentMousePosition = { x: 0, y: 0 };
+
+  useEffect(() => {
+    const copyFun = (e: any) => {
+      const comList = JSON.parse(JSON.stringify(Store.getState().comList))
+      if((e.ctrlKey || e.metaKey) && e.key === 'v') {
+        const style = {
+          position: 'absolute',
+          left: currentMousePosition.x + 'px',
+          top: currentMousePosition.y + 'px',
+          zIndex:100
+        }
+        let comId = `comId_${Date.now()}`;
+        const newNode = {...copyNode, comId, style};
+        comList.push(newNode);
+        Store.dispatch({type: 'changeComList', value: comList});
+        setSelectId(comId);
+      }
+    }
+    const mouseMove = (e: any) => {
+      currentMousePosition.x = e.clientX;  
+      currentMousePosition.y = e.clientY; 
+    }
+    document.addEventListener('mousemove', mouseMove);
+    document.addEventListener('keydown', copyFun);
+    return () => {
+      document.removeEventListener('mousemove', mouseMove);
+      document.removeEventListener('keydown', copyFun);
+    }
+  }, [copyNode])
 
   const distance = useRef<Distance>({
     startLeft: void 0,
@@ -118,19 +151,43 @@ export default function MainCom() {
     }
   }
 
+  const deleteCom = () => {
+    const list = comList.filter((item:ComJson) => {
+      return item.comId !== selectId;
+    })
+    Store.dispatch({type: 'changeComList', value: list})
+    message.success('删除成功');
+  }
+
+  const copyCom = () => {
+    const copyNode = comList.find((item: ComJson) => {
+      return item.comId === selectId;
+    })
+    setCopyNode(copyNode);
+    message.success('复制成功，ctrl + v 或者 command + v 进行复制');
+  }
+
   const getComponent = (com: any) => {
     const Com = components[com.comType as keyof typeof components];
-    return <div onDrop={onDropContainer(com)} key={com.comId} onClick={selectCom(com)}>
-      <div draggable onDragStart={onDragStart(com)} className={com.comId === selectId ? 'selectCom' : ''} style={com.style}>
-        <Com {...com} >
-          {
-            com.childList && com.childList.map((item: any) => {
-              return getComponent(item)
-            })
-          }
-        </Com>
+    return <div>
+        <div onDrop={onDropContainer(com)} key={com.comId} onClick={selectCom(com)}>
+          <div draggable onDragStart={onDragStart(com)} style={com.style}>
+            {selectId === com.comId && <div className='buttonList'>
+              <CopyOutlined onClick={copyCom} />
+              <DeleteOutlined onClick={deleteCom}/>
+            </div>}
+            <div className={com.comId === selectId ? 'selectCom' : ''}>
+              <Com {...com} >
+                {
+                  com.childList && com.childList.map((item: any) => {
+                    return getComponent(item)
+                  })
+                }
+              </Com>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   }
 
 
